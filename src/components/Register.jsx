@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import "./Form.css";
+
 
 const Register = () => {
     const [email, setEmail] = useState("")
@@ -25,22 +27,18 @@ const Register = () => {
     <form onSubmit={validarDatos}>
       <div>
           <label>Email</label>
-          <input type='email' onChange={(e) => ( setEmail(e.target.value))}></input>
+          <input type='email'placeholder="ejemplo@correo.com" onChange={(e) => ( setEmail(e.target.value))}></input>
       </div>
       <div>
           <label>Password</label>
-          <input type='password' onChange={(e) => ( setPassword(e.target.value))}></input>
+          <input type='password' placeholder="••••••" onChange={(e) => ( setPassword(e.target.value))}></input>
       </div>
       <div>
           <label>Check Password</label>
-          <input type='password' onChange={(e) => ( setcheckPassword(e.target.value))}></input>
+          <input type='password'placeholder="••••••" onChange={(e) => ( setcheckPassword(e.target.value))}></input>
       </div>
       <div>
           <button type='submit'>Registrarse</button>
-      </div>
-      <div>
-          <p>Datos agregados:</p>
-          <p>Email: {email}</p>
       </div>
     </form>
   </section>

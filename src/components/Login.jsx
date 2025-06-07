@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import "./Form.css";
+
 
 const Login = () => {
         const [email, setEmail] = useState("")
@@ -24,11 +26,11 @@ const validarDatos = (e) => {
           <form onSubmit={validarDatos}>
       <div>
           <label>Email</label>
-          <input type='email' onChange={(e) => ( setEmail(e.target.value))}></input>
+          <input type='email' placeholder="ejemplo@correo.com" onChange={(e) => ( setEmail(e.target.value))}></input>
       </div>
       <div>
           <label>Password</label>
-          <input type='password' onChange={(e) => ( setPassword(e.target.value))}></input>
+          <input type='password'  placeholder="••••••" onChange={(e) => ( setPassword(e.target.value))}></input>
       </div>
       <div>
           <button type='submit'>Login</button>
