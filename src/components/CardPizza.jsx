@@ -7,7 +7,11 @@ const CardPizza = (props) => {
       <div className="card-body">
         <h5 className="card-title">Pizza {props.name}</h5>
         <p><strong>Ingredientes:</strong></p>
-        <p className="text-muted small">🍕 {props.ingredients.join(', ')}</p>
+        <ul className="text-muted small">
+        {props.ingredients.map((ing, i) => (
+        <li key={i}>🍕 {ing}</li>
+        ))}
+        </ul>
         <p className="fw-bold">${props.price.toLocaleString()}</p>
         <div className="card-buttons">
           <button className="btn btn-outline-secondary btn-sm">Ver más</button>
