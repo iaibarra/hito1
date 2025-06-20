@@ -1,9 +1,10 @@
 import './App.css'
-import Cart from './components/Cart'
+//import Cart from './components/Cart'
 import Footer from './components/Footer'
-import Home from './components/Home'
+//import Home from './components/Home'
 //import Login from './components/Login'
 import Navbar from './components/Navbar'
+import Pizza from './components/Pizza'
 //import Register from './components/Register'
 
 function App() {
@@ -11,8 +12,9 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Home/> 
-      <Cart/>
+      {/*<Home/> */}
+      <Pizza/>
+      {/*<Cart/>*/}
       {/*<Register/> */}
       {/*<Login/> */}
       <Footer/>

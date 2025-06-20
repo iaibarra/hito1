@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Header from './Header'
-import {pizzas} from '../pizzas'
 import CardPizza from './CardPizza'
 
 
+
 const Home = () => {
+  const [pizzas, setPizzas] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/pizzas')
+    .then ((res) =>res.json())
+    .then ((data) => setPizzas(data))
+    .catch ((err) => console.error ('Error al cargar pizzas', err))
+  }, [])
   return (
     <>
     <Header/>
