@@ -1,26 +1,23 @@
-import React from 'react'
+import { useCart } from "../context/CartContext";
 
-const CardPizza = (props) => {
+const CardPizza = ({ name, img, ingredients, price, id }) => {
+  const { addToCart } = useCart();
+
+  const handleAdd = () => {
+    addToCart({ id, name, img, price });
+  };
+
   return (
-    <div className="card-pizza">
-      <img src={props.img} alt={`Pizza ${props.name}`} />
-      <div className="card-body">
-        <h5 className="card-title">Pizza {props.name}</h5>
-        <p><strong>Ingredientes:</strong></p>
-        <ul className="text-muted small">
-        {props.ingredients.map((ing, i) => (
-        <li key={i}>🍕 {ing}</li>
-        ))}
-        </ul>
-        <p className="fw-bold">${props.price.toLocaleString()}</p>
-        <div className="card-buttons">
-          <button className="btn btn-outline-secondary btn-sm">Ver más</button>
-          <button className="btn btn-dark btn-sm">Añadir</button>
-        </div>
-      </div>
+    <div className="card">
+      <img src={img} alt={name} />
+      <h5>{name}</h5>
+      <p>${price}</p>
+      <ul>
+        {ingredients.map((ing, i) => <li key={i}>{ing}</li>)}
+      </ul>
+      <button onClick={handleAdd} className="btn btn-primary">Añadir</button>
     </div>
   );
 };
 
-
-export default CardPizza
+export default CardPizza;

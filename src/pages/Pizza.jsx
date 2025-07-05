@@ -10,7 +10,7 @@ const Pizza = () => {
       .catch((err) => console.error('Error al cargar pizza', err))
   }, [])
 
-  if (!pizza) return <p>Cargando pizza...</p>
+  if (!pizza) return <p> Cargando pizza... </p>
 
   return (
     <div className="pizza-detail">

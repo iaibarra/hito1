@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
-  const total = 25000;
-  const token = true;
+  const { total } = useCart(); // trae el total del contexto
+
+  const token = true; // Simula usuario logueado
 
   return (
     <nav className="navbar navbar-light bg-light px-4 d-flex justify-content-between">
@@ -17,10 +19,8 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          {/*
-          <Link to="/login" className="btn btn-outline-secondary">🔐 Login</Link>
-          <Link to="/register" className="btn btn-outline-secondary">🔐 Register</Link>
-          */}
+          {/* <Link to="/login" className="btn btn-outline-secondary">🔐 Login</Link>
+          <Link to="/register" className="btn btn-outline-secondary">🔐 Register</Link> */}
         </>
       )}
 
@@ -32,3 +32,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
