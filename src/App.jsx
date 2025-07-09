@@ -9,6 +9,8 @@ import Pizza from './pages/Pizza'
 import Register from './pages/Register'
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
 
 const App = () => {
 
@@ -17,11 +19,28 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+  
+        {/* Rutas públicas: solo si NO hay token */}
+        <Route path="/register" element={
+          <PublicRoute token={token}>
+            <Register />
+          </PublicRoute>
+        } />
+        <Route path="/login" element={
+          <PublicRoute token={token}>
+            <Login />
+          </PublicRoute>
+        } />
+
         <Route path="/cart" element={<Cart />} />
-        <Route path="/pizza/p001" element={<Pizza />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/pizza/:id" element={<Pizza />} />
+
+        {/* Ruta protegida: solo si hay token */}
+        <Route path="/profile" element={
+          <ProtectedRoute token={token}>
+            <Profile />
+          </ProtectedRoute>
+        } />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

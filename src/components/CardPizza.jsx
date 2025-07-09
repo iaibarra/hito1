@@ -15,7 +15,12 @@ const CardPizza = ({ name, img, ingredients, price, id }) => {
       <ul>
         {ingredients.map((ing, i) => <li key={i}>{ing}</li>)}
       </ul>
+      <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
       <button onClick={handleAdd} className="btn btn-primary">Añadir</button>
+        <Link to={`/pizza/${id}`}>
+          <button className="btn btn-secondary">Ver más</button>
+        </Link>
+    </div>
     </div>
   );
 };

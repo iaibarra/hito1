@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useUser } from "../context/UserContext";
 
 const Navbar = () => {
   const { total } = useCart(); // trae el total del contexto
+  const { token, logout } = useUser();
 
-  const token = true; // Simula usuario logueado
 
   return (
     <nav className="navbar navbar-light bg-light px-4 d-flex justify-content-between">

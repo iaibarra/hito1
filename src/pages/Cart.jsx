@@ -1,7 +1,11 @@
 import { useCart } from "../context/CartContext";
+import { useUser } from "../context/UserContext";
+
 
 const Cart = () => {
   const { cart, increase, decrease, total } = useCart();
+  const { token } = useUser();
+
 
   return (
     <div className="cart-container">
@@ -19,7 +23,7 @@ const Cart = () => {
         </div>
       ))}
       <h3>Total: ${total}</h3>
-      <button className="btn btn-success">Pagar</button>
+      <button className="btn btn-success" disabled={!token}>Pagar</button>
     </div>
   );
 };
