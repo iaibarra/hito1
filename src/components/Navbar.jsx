@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useUser } from "../context/UserContext";
 
 const Navbar = () => {
-  const { total } = useCart(); // trae el total del contexto
+  const { total } = useCart();
   const { token, logout } = useUser();
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar navbar-light bg-light px-4 d-flex justify-content-between">
@@ -16,7 +21,7 @@ const Navbar = () => {
       {token ? (
         <>
           <Link to="/profile" className="btn btn-outline-success">🔓 Profile</Link>
-          <button className="btn btn-outline-danger">🔒 Logout</button>
+          <button className="btn btn-outline-danger" onClick={handleLogout}>🔒 Logout</button>
         </>
       ) : (
         <>
@@ -33,4 +38,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
