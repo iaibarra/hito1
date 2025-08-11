@@ -6,7 +6,7 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
 
-  // Guardamos el token y email en localStorage cada vez que cambian
+  // Guardar el token y email en localStorage cada vez que cambian
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);

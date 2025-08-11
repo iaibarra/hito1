@@ -1,4 +1,3 @@
-// src/pages/Profile.jsx
 import React, { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +14,8 @@ const Profile = () => {
         setUserData(data);
       } catch (error) {
         console.error("Error al obtener perfil:", error.message);
-        logout(); // Si falla, cerramos sesión
+        logout(); //si falla cerrar cesión 
+    
         navigate("/login");
       }
     };

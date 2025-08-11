@@ -21,7 +21,7 @@ const CardPizza = ({ name, img, ingredients, price, id }) => {
           <button className="btn btn-secondary">Ver más</button>
         </Link>
     </div>
-    </div>
+    </div>  
   );
 };
 

@@ -1,7 +1,6 @@
-// src/context/CartContext.jsx
 import { createContext, useContext, useState } from "react";
 
-// Crea el contexto
+// Crear el contexto
 const CartContext = createContext();
 
 // Hook personalizado para consumir el contexto
@@ -37,7 +36,7 @@ export const CartProvider = ({ children }) => {
       .filter(p => p.count > 0));
   };
 
-  // Calcular total
+  // Cálculo del total
   const total = cart.reduce((sum, p) => sum + p.price * p.count, 0);
 
   return (
